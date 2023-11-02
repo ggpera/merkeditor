@@ -1,28 +1,31 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const Pixel = () => {
+const Pixel = ({ binary, toggleBinaryValue }) => {
   const [color, setColor] = useState('#FFFFFF');
-  const [painted, setPainted] = useState(false);
+  const [pixelBinary, setPixelBinary] = useState(binary);
 
   const paintPixel = () => {
-    if (!painted) {
+    if (pixelBinary === 0) {
       setColor('#000000');
-      setPainted(true);
+      setPixelBinary(1);
+      toggleBinaryValue();
     } else {
       removeColor();
     }
   };
   const removeColor = () => {
     setColor('#FFFFFF');
-    setPainted(false);
+    setPixelBinary(0);
+    toggleBinaryValue();
   };
   const changeColorOnEnter = () => {
-    if (!painted) {
+    if (pixelBinary === 0) {
       setColor('#000000');
     }
   };
   const changeColorOnLeave = () => {
-    if (!painted) {
+    if (pixelBinary === 0) {
       setColor('#FFFFFF');
     }
   };
@@ -37,4 +40,10 @@ const Pixel = () => {
     ></div>
   );
 };
+
+Pixel.propTypes = {
+  binary: PropTypes.number,
+  toggleBinaryValue: PropTypes.func,
+};
+
 export default Pixel;
