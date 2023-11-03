@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Pixel = ({ binary, toggleBinaryValue }) => {
-  const [color, setColor] = useState('#FFFFFF');
-  const [pixelBinary, setPixelBinary] = useState(binary);
+  const [color, setColor] = useState('');
+
+  useEffect(() => {
+    setColor(binary === 0 ? '#FFFFFF' : '#000000');
+  }, [binary]);
 
   const paintPixel = () => {
-    if (pixelBinary === 0) {
+    if (binary === 0) {
       setColor('#000000');
-      setPixelBinary(1);
       toggleBinaryValue();
     } else {
       removeColor();
@@ -16,16 +18,15 @@ const Pixel = ({ binary, toggleBinaryValue }) => {
   };
   const removeColor = () => {
     setColor('#FFFFFF');
-    setPixelBinary(0);
     toggleBinaryValue();
   };
   const changeColorOnEnter = () => {
-    if (pixelBinary === 0) {
+    if (binary === 0) {
       setColor('#000000');
     }
   };
   const changeColorOnLeave = () => {
-    if (pixelBinary === 0) {
+    if (binary === 0) {
       setColor('#FFFFFF');
     }
   };
