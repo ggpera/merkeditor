@@ -1,1 +1,1 @@
-# React + Vite
+# Character set editor for GLSL
