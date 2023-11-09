@@ -1,28 +1,28 @@
 import { useState } from 'react';
+import { arrayChunk } from '../utils/arrays';
 import Pixel from './Pixel';
 import '../App.css';
+import characters from '../characters.json';
 
 const Grid = () => {
-  const [binaryArray, setBinaryArray] = useState(new Array(42).fill(0));
+  const [binaryArray, setBinaryArray] = useState(characters.set[0].binaryArray);
 
   const toggleBinaryValue = (index) => {
     const updatedBinaryArray = [...binaryArray];
     updatedBinaryArray[index] = 1 - updatedBinaryArray[index]; // Toggle between 0 and 1
     setBinaryArray(updatedBinaryArray);
   };
-  const arrayChunk = (arr, n) => {
-    const array = arr.slice();
-    const chunks = [];
-    while (array.length) chunks.push(array.splice(0, n));
-    return chunks;
-  };
+
   const resetBinaryArray = () => {
     const updatedBinaryArray = [...binaryArray];
     updatedBinaryArray.fill(0);
     setBinaryArray(updatedBinaryArray);
   };
+
   const binaryChunks = arrayChunk(binaryArray, 21);
+
   console.log(binaryArray);
+
   return (
     <>
       <div className='grid'>
@@ -46,6 +46,7 @@ const Grid = () => {
       <button style={{ padding: '0.5rem' }} onClick={resetBinaryArray}>
         Clear
       </button>
+      <button style={{ padding: '0.5rem', marginLeft: '1rem' }}>Save</button>
     </>
   );
 };
