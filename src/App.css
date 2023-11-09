@@ -6,7 +6,6 @@ body {
 
 .App {
   margin: 5rem auto;
-  text-align: left;
 }
 
 .pixel {
@@ -17,4 +16,24 @@ body {
 
 .row {
   display: flex;
+  flex-wrap: wrap-reverse;
+}
+.set-pixel {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+.set-grid {
+  margin-right: 0.5rem;
+  border: none;
+  border-color: white;
+  outline-color: white;
+}
+.set-grid:hover,
+:focus {
+  background-color: aqua;
+}
+.character-set {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
