@@ -25,11 +25,9 @@ body {
 .set-grid {
   margin-right: 0.5rem;
   border: none;
-  border-color: white;
-  outline-color: white;
 }
 .set-grid:hover,
-:focus {
+.set-grid:focus {
   background-color: aqua;
 }
 .character-set {
