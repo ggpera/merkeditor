@@ -14,7 +14,7 @@ const Grid = ({ character }) => {
   };
 
   // Zero the array with clear button
-  const resetBinaryArray = () => {
+  const clearBinaryArray = () => {
     const updatedBinaryArray = [...binaryArray];
     updatedBinaryArray.fill(0);
     setBinaryArray(updatedBinaryArray);
@@ -45,7 +45,7 @@ const Grid = ({ character }) => {
       </div>
       <div>{parseInt(binaryChunks[0].join(''), 2)}</div>
       <div>{parseInt(binaryChunks[1].join(''), 2)}</div>
-      <button style={{ padding: '0.5rem' }} onClick={resetBinaryArray}>
+      <button style={{ padding: '0.5rem' }} onClick={clearBinaryArray}>
         Clear
       </button>
       <button style={{ padding: '0.5rem', marginLeft: '1rem' }}>Save</button>
