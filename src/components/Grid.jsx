@@ -13,10 +13,17 @@ const Grid = ({ character }) => {
     setBinaryArray(updatedBinaryArray);
   };
 
-  // Zero the array with clear button
+  // Zero the array and empty the grid with clear button
   const clearBinaryArray = () => {
     const updatedBinaryArray = [...binaryArray];
     updatedBinaryArray.fill(0);
+    setBinaryArray(updatedBinaryArray);
+  };
+
+  // Reset binary array and fill the grid with the initial character
+  const resetBinaryArray = () => {
+    let updatedBinaryArray = [...binaryArray];
+    updatedBinaryArray = character;
     setBinaryArray(updatedBinaryArray);
   };
 
@@ -45,10 +52,15 @@ const Grid = ({ character }) => {
       </div>
       <div>{parseInt(binaryChunks[0].join(''), 2)}</div>
       <div>{parseInt(binaryChunks[1].join(''), 2)}</div>
-      <button style={{ padding: '0.5rem' }} onClick={clearBinaryArray}>
-        Clear
-      </button>
-      <button style={{ padding: '0.5rem', marginLeft: '1rem' }}>Save</button>
+      <div style={{ display: 'flex', flexDirection: 'column', width: '10rem' }}>
+        <button style={{ padding: '0.5rem', margin: '0.5rem' }} onClick={clearBinaryArray}>
+          Clear
+        </button>
+        <button style={{ padding: '0.5rem', margin: '0.5rem' }} onClick={resetBinaryArray}>
+          Reset
+        </button>
+        <button style={{ padding: '0.5rem', margin: '0.5rem' }}>Save</button>
+      </div>
     </>
   );
 };
