@@ -6,7 +6,11 @@ const CharacterSet = ({ characters, setEditCharacter }) => {
     <>
       <div className='character-set'>
         {characters.map((character, index) => (
-          <button key={index} className='set-grid' onClick={() => setEditCharacter(character)}>
+          <button
+            key={index}
+            className='set-grid'
+            onClick={() => setEditCharacter(character, index)}
+          >
             {arrayChunk(character.binaryArray, 6).map((row, rowIndex) => (
               <div key={rowIndex} className='row'>
                 {row.map((binary, colIndex) => {
