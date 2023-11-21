@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { arrayChunk } from '../utils/arrays';
 import Pixel from './Pixel';
 
-const Grid = ({ character }) => {
+const Grid = ({ character, saveCharacters }) => {
   const [binaryArray, setBinaryArray] = useState(character);
 
   // Set the binary value of an item to be 0 or 1
@@ -34,7 +34,7 @@ const Grid = ({ character }) => {
 
   return (
     <>
-      <div className='grid'>
+      <div>
         {arrayChunk(binaryArray, 6).map((row, rowIndex) => (
           <div key={rowIndex} className='row'>
             {row.map((binary, colIndex) => {
@@ -54,17 +54,23 @@ const Grid = ({ character }) => {
       <div>{parseInt(binaryChunks[1].join(''), 2)}</div>
       <div style={{ display: 'flex', flexDirection: 'column', width: '10rem' }}>
         <button style={{ padding: '0.5rem', margin: '0.5rem' }} onClick={clearBinaryArray}>
-          Clear
+          Clear character
         </button>
         <button style={{ padding: '0.5rem', margin: '0.5rem' }} onClick={resetBinaryArray}>
-          Reset
+          Reset character
         </button>
-        <button style={{ padding: '0.5rem', margin: '0.5rem' }}>Save</button>
+        <button
+          style={{ padding: '0.5rem', margin: '0.5rem' }}
+          onClick={() => saveCharacters(binaryArray)}
+        >
+          Save character
+        </button>
       </div>
     </>
   );
 };
 Grid.propTypes = {
   character: PropTypes.array,
+  saveCharacters: PropTypes.func,
 };
 export default Grid;
