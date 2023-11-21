@@ -2,21 +2,37 @@ import './App.css';
 import { useState } from 'react';
 import Grid from './components/Grid';
 import CharacterSet from './components/CharacterSet';
-import characters from './characters.json';
+import data from './characters.json';
 
 const App = () => {
+  const [characters, setCharacters] = useState(data);
   const [character, setCharacter] = useState(characters.set[0].binaryArray);
+  const [charIndex, setCharIndex] = useState(0);
 
-  const setEditCharacter = (char) => {
+  // Set character from set to be edited
+  const setEditCharacter = (char, index) => {
     setCharacter(char.binaryArray);
+    setCharIndex(index);
+  };
+  // Save updated character to character set and re-render
+  const saveCharacters = (char) => {
+    const updatedCharacters = { ...characters };
+    updatedCharacters.set[charIndex].binaryArray = char;
+    setCharacters(updatedCharacters);
   };
   console.log(character);
   return (
     <div className='App'>
-      <div className='character-set'>
-        <CharacterSet characters={characters.set} setEditCharacter={setEditCharacter} />
+      <div className='grid'>
+        <Grid key={character} character={character} saveCharacters={saveCharacters} />
       </div>
-      <Grid key={character} character={character} />
+      <div className='character-set'>
+        <CharacterSet
+          key={characters.set}
+          characters={characters.set}
+          setEditCharacter={setEditCharacter}
+        />
+      </div>
     </div>
   );
 };
