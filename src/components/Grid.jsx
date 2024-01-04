@@ -50,19 +50,18 @@ const Grid = ({ character, saveCharacters }) => {
           </div>
         ))}
       </div>
-      <div>{parseInt(binaryChunks[0].join(''), 2)}</div>
-      <div>{parseInt(binaryChunks[1].join(''), 2)}</div>
-      <div style={{ display: 'flex', flexDirection: 'column', width: '10rem' }}>
-        <button style={{ padding: '0.5rem', margin: '0.5rem' }} onClick={clearBinaryArray}>
+      <div className='char-binary'>
+        <div>{parseInt(binaryChunks[0].join(''), 2)}</div>
+        <div>{parseInt(binaryChunks[1].join(''), 2)}</div>
+      </div>
+      <div className='char-button-group'>
+        <button className='char-buttons' onClick={clearBinaryArray}>
           Clear character
         </button>
-        <button style={{ padding: '0.5rem', margin: '0.5rem' }} onClick={resetBinaryArray}>
+        <button className='char-buttons' onClick={resetBinaryArray}>
           Reset character
         </button>
-        <button
-          style={{ padding: '0.5rem', margin: '0.5rem' }}
-          onClick={() => saveCharacters(binaryArray)}
-        >
+        <button className='char-buttons' onClick={() => saveCharacters(binaryArray)}>
           Save character
         </button>
       </div>
