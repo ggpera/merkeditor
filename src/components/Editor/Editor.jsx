@@ -1,8 +1,8 @@
-import '../App.css';
+import styles from './Editor.module.css';
 import { useState } from 'react';
-import Grid from './Grid';
-import CharacterSet from './CharacterSet';
-import data from '../data/characters.json';
+import Grid from '../Grid/Grid';
+import CharacterSet from '../CharacterSet/CharacterSet';
+import data from '../../data/characters.json';
 
 const Editor = () => {
   const [characters, setCharacters] = useState(data);
@@ -22,11 +22,11 @@ const Editor = () => {
   };
   console.log(character);
   return (
-    <div className='editor'>
-      <div className='grid'>
+    <div className={styles.editor}>
+      <div className={styles.grid}>
         <Grid key={character} character={character} saveCharacters={saveCharacters} />
       </div>
-      <div className='character-set'>
+      <div className={styles.characterSet}>
         <CharacterSet
           key={characters.set}
           characters={characters.set}

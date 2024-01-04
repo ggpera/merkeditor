@@ -1,7 +1,8 @@
+import styles from './Grid.module.css';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { arrayChunk } from '../utils/arrays';
-import Pixel from './Pixel';
+import { arrayChunk } from '../../utils/arrays';
+import Pixel from '../Pixel/Pixel';
 
 const Grid = ({ character, saveCharacters }) => {
   const [binaryArray, setBinaryArray] = useState(character);
@@ -36,7 +37,7 @@ const Grid = ({ character, saveCharacters }) => {
     <>
       <div>
         {arrayChunk(binaryArray, 6).map((row, rowIndex) => (
-          <div key={rowIndex} className='row'>
+          <div key={rowIndex} className={styles.row}>
             {row.map((binary, colIndex) => {
               const totalIndex = rowIndex * 6 + colIndex;
               return (
@@ -50,18 +51,18 @@ const Grid = ({ character, saveCharacters }) => {
           </div>
         ))}
       </div>
-      <div className='char-binary'>
+      <div className={styles.binary}>
         <div>{parseInt(binaryChunks[0].join(''), 2)}</div>
         <div>{parseInt(binaryChunks[1].join(''), 2)}</div>
       </div>
-      <div className='char-button-group'>
-        <button className='char-buttons' onClick={clearBinaryArray}>
+      <div className={styles.btnGroup}>
+        <button className={styles.btn} onClick={clearBinaryArray}>
           Clear character
         </button>
-        <button className='char-buttons' onClick={resetBinaryArray}>
+        <button className={styles.btn} onClick={resetBinaryArray}>
           Reset character
         </button>
-        <button className='char-buttons' onClick={() => saveCharacters(binaryArray)}>
+        <button className={styles.btn} onClick={() => saveCharacters(binaryArray)}>
           Save character
         </button>
       </div>

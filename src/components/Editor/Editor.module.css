@@ -1,0 +1,20 @@
+.editor {
+  background-color: grey;
+  margin: 3rem auto;
+  padding: 1rem;
+  display: flex;
+  gap: 5rem;
+}
+.grid {
+  background-color: #313639;
+  margin-left: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+.characterSet {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  flex-wrap: wrap;
+}

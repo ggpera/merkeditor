@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import styles from './Pixel.module.css';
 
 const Pixel = ({ binary, toggleBinaryValue }) => {
   const [color, setColor] = useState('');
@@ -33,7 +34,7 @@ const Pixel = ({ binary, toggleBinaryValue }) => {
 
   return (
     <div
-      className='pixel'
+      className={styles.pixel}
       style={{ backgroundColor: color }}
       onMouseDown={paintPixel}
       onMouseEnter={changeColorOnEnter}
