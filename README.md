@@ -1,12 +1,12 @@
 # Character set editor for GLSL
 
-Turn your bitmaps into bits!
+Edit your character sets and turn the character bitmap into GLSL-compatible decimals.
 
 ## Installation
 
 `npm i`
 
-## Let's go
+## Run
 
 `npm run dev`
 
