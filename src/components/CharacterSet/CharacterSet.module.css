@@ -2,15 +2,6 @@
   width: 0.4rem;
   height: 0.4rem;
 }
-.grid {
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  border: none;
-}
-.grid:hover,
-.grid:focus {
-  background-color: aqua;
-}
 .row {
   display: flex;
   flex-wrap: wrap-reverse;
