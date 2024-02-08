@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styles from './SetButton.module.css';
 import { Character } from '../../../types';
 
@@ -32,13 +31,5 @@ const SetButton = ({
       </button>
     </>
   );
-};
-SetButton.propTypes = {
-  children: PropTypes.element,
-  setEditCharacter: PropTypes.func,
-  character: PropTypes.object,
-  index: PropTypes.number,
-  active: PropTypes.number,
-  handleActive: PropTypes.func,
 };
 export default SetButton;
