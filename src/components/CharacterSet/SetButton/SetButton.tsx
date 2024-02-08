@@ -1,7 +1,24 @@
 import PropTypes from 'prop-types';
 import styles from './SetButton.module.css';
+import { Character } from '../../../types';
 
-const SetButton = ({ children, setEditCharacter, character, index, active, handleActive }) => {
+type Props = {
+  children: React.ReactNode;
+  character: Character;
+  index: number;
+  active: number;
+  setEditCharacter: (character: Character, index: number) => void;
+  handleActive: (index: number) => void;
+};
+
+const SetButton = ({
+  children,
+  setEditCharacter,
+  character,
+  index,
+  active,
+  handleActive,
+}: Props) => {
   return (
     <>
       <button

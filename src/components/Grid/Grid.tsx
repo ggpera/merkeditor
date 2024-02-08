@@ -1,14 +1,17 @@
 import styles from './Grid.module.css';
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import { arrayChunk } from '../../utils/arrays';
 import Pixel from '../Pixel/Pixel';
+import { useState } from 'react';
+import { arrayChunk } from '../../utils/arrays';
 
-const Grid = ({ character, saveCharacters }) => {
-  const [binaryArray, setBinaryArray] = useState(character);
+type Props = {
+  charBinary: Array<number>;
+  saveCharacters: (array: Array<number>) => void;
+};
+const Grid = ({ charBinary, saveCharacters }: Props) => {
+  const [binaryArray, setBinaryArray] = useState(charBinary);
 
   // Set the binary value of an item to be 0 or 1
-  const toggleBinaryValue = (index) => {
+  const toggleBinaryValue = (index: number) => {
     const updatedBinaryArray = [...binaryArray];
     updatedBinaryArray[index] = 1 - updatedBinaryArray[index]; // Toggle between 0 and 1
     setBinaryArray(updatedBinaryArray);
@@ -24,7 +27,7 @@ const Grid = ({ character, saveCharacters }) => {
   // Reset binary array and fill the grid with the initial character
   const resetBinaryArray = () => {
     let updatedBinaryArray = [...binaryArray];
-    updatedBinaryArray = character;
+    updatedBinaryArray = charBinary;
     setBinaryArray(updatedBinaryArray);
   };
 
@@ -69,8 +72,5 @@ const Grid = ({ character, saveCharacters }) => {
     </>
   );
 };
-Grid.propTypes = {
-  character: PropTypes.array,
-  saveCharacters: PropTypes.func,
-};
+
 export default Grid;

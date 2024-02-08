@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import styles from './Pixel.module.css';
 
-const Pixel = ({ binary, toggleBinaryValue }) => {
+type Props = {
+  binary: number;
+  toggleBinaryValue: () => void;
+};
+
+const Pixel = ({ binary, toggleBinaryValue }: Props) => {
   const [color, setColor] = useState('');
 
   useEffect(() => {
@@ -41,11 +45,6 @@ const Pixel = ({ binary, toggleBinaryValue }) => {
       onMouseLeave={changeColorOnLeave}
     ></div>
   );
-};
-
-Pixel.propTypes = {
-  binary: PropTypes.number,
-  toggleBinaryValue: PropTypes.func,
 };
 
 export default Pixel;

@@ -1,19 +1,24 @@
 import styles from './CharacterSet.module.css';
-import PropTypes from 'prop-types';
-import { arrayChunk } from '../../utils/arrays';
 import SetButton from './SetButton/SetButton';
+import { arrayChunk } from '../../utils/arrays';
 import { useState } from 'react';
+import { Character } from '../../types';
+
+type Props = {
+  characters: Array<Character>;
+  setEditCharacter: (character: Character, index: number) => void;
+};
 
 // Render character set on the right side of the screen
-const CharacterSet = ({ characters, setEditCharacter }) => {
+const CharacterSet = ({ characters, setEditCharacter }: Props) => {
   const [active, setActive] = useState(0);
 
-  const handleActive = (index) => {
+  const handleActive = (index: number) => {
     setActive(index);
   };
   return (
     <>
-      {characters.map((character, index) => (
+      {characters.map((character: Character, index: number) => (
         <SetButton
           key={index}
           setEditCharacter={setEditCharacter}
@@ -43,8 +48,5 @@ const CharacterSet = ({ characters, setEditCharacter }) => {
     </>
   );
 };
-CharacterSet.propTypes = {
-  characters: PropTypes.array,
-  setEditCharacter: PropTypes.func,
-};
+
 export default CharacterSet;
