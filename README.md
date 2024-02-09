@@ -1,6 +1,13 @@
 # Character set editor for GLSL
 
+## [Open project](https://charseteditor.netlify.app/)
+
 Edit your character sets and turn the character bitmap into GLSL-compatible decimals.
+
+## Tech stack
+
+- TypeScript
+- React
 
 ## Installation
 
