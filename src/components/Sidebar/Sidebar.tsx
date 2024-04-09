@@ -3,7 +3,7 @@ import styles from './Sidebar.module.css';
 const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
-      <button></button>
+      <button className={styles.btn}>Export</button>
     </div>
   );
 };
