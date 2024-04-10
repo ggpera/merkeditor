@@ -1,9 +1,14 @@
 import styles from './Sidebar.module.css';
 
-const Sidebar = () => {
+type Props = {
+  handleOpen: () => void;
+};
+const Sidebar = ({ handleOpen }: Props) => {
   return (
     <div className={styles.sidebar}>
-      <button className={styles.btn}>Export</button>
+      <button className={styles.btn} onClick={handleOpen}>
+        Export
+      </button>
     </div>
   );
 };

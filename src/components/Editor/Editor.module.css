@@ -18,3 +18,10 @@
   align-self: flex-start;
   flex-wrap: wrap;
 }
+.closed {
+  display: none;
+}
+.open {
+  position: static;
+  display: block;
+}
